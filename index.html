@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><link rel="stylesheet" href="./carZone.css">
+</head>
+<body><div id="notification"></div> 
+    <header id="head">
+        <div class="main">
+            
+            <img class="ImgLogo" src="./Red Black and White Modern Automotive Car Services Logo.png" alt="">
+
+          
+            <ul class="cont1">
+                <li><a href="">Home</a></li>
+                <li><a href="./cars.html">Cars</a></li>
+                <li><a href="./favorotes.html">Favorites</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+            </ul> 
+
+              <input type="text" id="searchInput" placeholder="Search cars...">
+
+
+                <select id="Filter1">
+                <option value="all">All Brands</option>
+                <option value="BMW">BMW</option>
+                <option value="Mercedes">Mercedes</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Audi">Audi</option>
+                <option value="Tesla">Tesla</option>
+            </select>
+            <select name="" id="Filter2">
+                <option value="all">All</option>
+                <option value="Petrol">Petrol</option>
+                <option value="Diesel">Diesel</option>
+                <option value="Hybrid">Hybrid</option>
+                <option value="Electric">Electric</option>
+            </select>
+
+            <select id="Filter3">
+                <option value="all">All Transmissions</option>
+                <option value="Automatic">Automatic</option>
+                <option value="Manual">Manual</option>
+            </select>
+
+           
+
+            <select id="sortFilter">
+                <option value="default">Default</option>
+                <option value="priceLow">Price: Low to High</option>
+                <option value="priceHigh">Price: High to Low</option>
+                <option value="nameAZ">Name: A to Z</option>
+                <option value="nameZA">Name: Z to A</option>
+                <option value="yearNew">Year: Newest</option>
+                <option value="yearOld">Year: Oldest</option>
+            </select>
+
+             <input id="PriceMin" type="number" placeholder="Min"  min="0" >
+            <input id="PriceMax" type="number" placeholder="Max"  min="0" >
+            
+            <div class="price-range">
+                <label class="label1">
+                    Price Range: $<span id="priceRangeValue">0</span>
+                </label>
+                
+                <input type="range" id="priceRange" min="0" step="1000" max="300000" value="0">
+            
+            </div>
+
+
+            <button id="resetFilters">RESET FILTERS</button>
+
+
+        </div>
+        <div class="main1">
+             <h1 class="FavoritesCount">0<h1 class="FavCar">Favorite car</h1></h1>
+            <h1 class="CartsCount"></h1>
+            <button class="Btn1" onclick="SwichMode()">Dark Mode</button>
+           
+        </div>
+
+       
+
+        
+
+
+        
+        
+    </header>
+
+
+        <div id="loading">Loading cars...</div>
+
+
+        
+<main id="mainContainer"> 
+    
+    
+    
+        <section class="heroSection">
+    <h1>FIND YOUR DREAM CAR</h1>
+
+    <p>Find the perfect car for your lifestyle.</p>
+
+   
+
+    
+</section>
+
+
+
+<section id="addCarSection">
+
+    
+    <h2 class="NormText">Add New Car</h2>
+
+    <form id="addCarForm">
+        <input type="text" id="brandInp" placeholder="Brand">
+
+        <input type="text" id="modelInp" placeholder="Model">
+
+        <input type="number" id="yearInp" placeholder="Year">
+
+        <input type="number" id="priceInp" placeholder="Price">
+
+        <select id="fuelInp">
+            <option class="option1" value="">Select Fuel</option>
+            <option class="option1" value="Petrol">Petrol</option>
+            <option class="option1" value="Diesel">Diesel</option>
+            <option class="option1" value="Hybrid">Hybrid</option>
+            <option class="option1" value="Electric">Electric</option>
+        </select>
+
+        <select id="transmissionInp">
+            <option class="option1" value="">Select Transmission</option>
+            <option class="option1" value="Automatic">Automatic</option>
+            <option class="option1" value="Manual">Manual</option>
+        </select>
+
+        <input type="text" id="imageInp" placeholder="Image URL">
+
+        <button class="Btn11" type="submit">Add Car</button>
+    </form>
+</section>
+
+ 
+
+
+    <div class="emptyStateCon">
+        <p id="emptyState" style="display: none;">
+            No cars found
+        </p>
+    </div>
+
+      <main>
+
+        <section class="cars-section">
+
+            <h2 class="Text1">Our Cars</h2>
+
+            <div class="cars-container" id="carsContainer">
+                
+
+           
+
+            </div>
+            
+
+            
+            <div id="pagination">
+                <div id="buttons"></div>
+            </div>
+            <div id="compareContainer"></div>
+            
+
+        </section>
+
+    </main>
+
+
+    
+
+
+    <div id="detailsModal" class="modal">
+    <div class="modal-content">
+        <button id="closeModal">X</button>
+
+        <img id="modalImage">
+
+        <h2 id="modalName"></h2>
+
+        <p id="modalYear"></p>
+        <p id="modalEngine"></p>
+        <p id="modalFuel"></p>
+        <p id="modalTransmission"></p>
+        <p id="modalPrice"></p>
+
+        <button id="modalCartBtn">Add To Cart</button>
+    </div>
+    </div>
+
+
+  
+
+    </main>
+
+
+    
+<footer class="footer">
+    <hr class="line">
+      <section class="aboutSection" id="about">
+    <h2>WHY CARZONE?</h2>
+
+    <div class="aboutFeatures">
+        <p>✓ 500+ Cars</p>
+        <p>✓ Trusted Sellers</p>
+        <p>✓ Secure Purchase</p>
+        <p>✓ Fast Support</p>
+    </div>
+
+    <div class="statistics">
+        <div class="stat">
+            <h3 class="statNumber"  data-target="500">500+</h3>
+            <p>Cars</p>
+        </div>
+
+        <div class="stat">
+            <h3 class="statNumber"  data-target="1200">1200+</h3>
+            <p>Customers</p>
+        </div>
+
+        <div class="stat">
+            <h3 class="statNumber"  data-target="15">15</h3>
+            <p>Brands</p>
+        </div>
+    </div>
+</section>
+    <div class="footerContent">
+        <div class="footerAbout">
+            <h2>CARZONE</h2>
+            <p>Find your dream car with CarZone.</p>
+        </div>
+    
+        <div class="footerLinks">
+            <h3>Quick Links</h3>
+            <a href="./index.html">Home</a>
+            <a href="./index.html#about">About</a>
+            <a href="./index.html#contact">Contact</a>
+        </div>
+
+        <div class="footerContact">
+            <h3>Contact Us</h3>
+            <p>Email: support@carzone.com</p>
+            <p>Fast and reliable car shopping.</p>
+        </div>
+    </div>
+
+    <div class="footerBottom">
+        <p>&copy; 2026 CARZONE. All rights reserved.</p>
+    </div>
+</footer>
+
+
+    <script src="./carZone.js"></script>
+</body>
+</html>
