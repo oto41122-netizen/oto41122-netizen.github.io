@@ -140,7 +140,7 @@ let cars = JSON.parse(localStorage.getItem("cars")) || [
         price: 68000,
         fuel: "Petrol",
         transmission: "Automatic",
-        image: "./2023_Audi_RS5_Carbon_Black_TFSI_Quattro_Auto_2.jpg"
+        image: "./2023_Audi_RS5_Carbon_Black_TFSi_Quattro_Auto_2.jpg"
     },
     {
         id: 5,
